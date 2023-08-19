@@ -725,6 +725,7 @@ ORDER BY revenue DESC;
 This table represents revenue data collection with various attributes, including time type, time period, source, and revenue amount. Each row corresponds to a specific time period (week or month) and provides information about the revenue generated from different sources during that time period. The author found the insights bellow through the table above.
 
  **Direct Revenue and Source Breakdown:** The dataset includes revenue from various sources, such as (direct), Google, dfa, mail.google.com, search engines like myway.com, and others. Revenue comes from different sources, including direct website visits, organic search traffic, and referrals from various websites.
+ 
 **Time Period Analysis:**
 Revenue is reported on a weekly and monthly basis. It seems like the data spans multiple months, including the month labeled "201706."
 
@@ -769,6 +770,17 @@ ORDER BY MONTH;
 |--------|------------------------|----------------------------|
 | 201706 | 25.7357631             | 4.074559876                |
 | 201707 | 27.72095436            | 4.191840875                |
+
+
+The table shows user behavior in a tabular format with two columns  "avg_pageviews_purchase," and "avg_pageviews_non_purchase"  in two consecutive months, June 2017 (201706) and July 2017 (201707).
+
+ **Pageviews for Users Making a Purchase vs. Non-Purchasers:** The data highlights a significant difference in average pageviews between users who made a purchase and those who did not. On average, users who made a purchase tend to view more pages on the website than those who did not. In June 2017, for instance, the average pageviews for purchasers (25.74) were much higher compared to non-purchasers (4.07).
+ 
+ **Engagement Patterns:** The higher average pageviews for purchasers suggest that users who are more engaged with the website's content are more likely to make a purchase. This could indicate a positive correlation between engagement and conversion.
+ 
+ **Behavioral Insights:** The data reflect different user behaviors. Users interested in making a purchase might spend more time exploring product details, reading reviews, and comparing options, leading to a higher number of pageviews.
+ 
+ **Conversion Optimization:** The business can leverage this data to optimize its website's design and content to encourage higher engagement among users likely to purchase. This could involve improving navigation, showcasing relevant products, and providing valuable content to guide users toward conversion.
 
 **6.5 Average number of transactions per user that purchased in July 2017**
 ~~~~sql
