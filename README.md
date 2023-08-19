@@ -156,13 +156,18 @@ UNNEST(hits.product) as product
 | 201702 | 62192  | 233373    | 733          | 116111.6  |
 | 201703 | 69931  | 259522    | 993          | 150224.7  |
 
-The table shows a summary of website activity for different months in the year 2017. Based on the columns bellow:
+The table provides a snapshot of The eCommerce website performance over the first few months of 2017, including visits, pageviews, transactions, and revenue metrics. The author derive some insights from the provided monthly data:
 
-- **`month`**: This column represents the different months in the year 2017, indicated in a YYYYMM format (e.g: 201701 for January 2017).
-- **`visits`**: This column displays the total number of visits to the website during the corresponding month.
-- **`pageviews`**: This column indicates the total number of pageviews across all sessions for the month.
-- **`transactions`**: This column shows the total number of transactions  made on the website during the month.
-- **`revenue`**: This column displays the total revenue generated from all transactions on the website during the month.
+ **Traffic and Engagement Patterns**: The number of visits and pageviews increased from January (`201701`) to March (`201703`), suggesting a growing website interest over time. Besides that, the increase in pageviews is a positive sign, indicating that users explore multiple pages during their visits, potentially finding the content engaging.
+ 
+  **Conversion and Revenue Trends**:The number of transactions and total revenue also steadily increased from January to March. This demonstrates that more users are engaging with the site, and a growing proportion of them are also making transactions, contributing to increased revenue.
+Moreover, the substantial jump in transactions and revenue from January to March (`201703`) suggests that efforts made during this period might have been particularly effective in driving user conversions.
+
+  **Seasonal or Marketing Influence**:The consistent growth in both transactions and revenue over the three months could indicate the influence of seasonality, marketing campaigns, or optimizations implemented during this time.
+  
+  **Opportunities for Improvement**: While the data shows positive growth, there might be opportunities to optimize user engagement and conversions further. Analyzing specific user journeys, popular landing pages, and exit points could help identify areas for improvement.
+  
+ **Future Strategy and Focus**: Consider further investigating what strategies, campaigns, or changes were implemented between January and March that contributed to the significant increase in transactions and revenue. These insights can inform future marketing and optimization efforts.
 
 **6.2 Bounce rate per traffic source in July 2017**
 ~~~~sql
@@ -274,19 +279,8 @@ ORDER BY total_visits DESC;
 | suche.t-online.de           | 1            | 1                   | 100         |
 | google.com.br               | 1            |                     |             |
 
-The aim of this table is bring out the answer which sources are driving the most traffic to the website. Besides that, the author want to analyze bounce rates to assess the quality of user engagement for each source. 
 
- The table contains the columns below:
-
-- **`source`**: This column lists the sources of traffic to the website.
-- **`total_visits`**: The total number of visits from each source.
-- **`total_no_of_bounces`**: The total number of bounces from each source.
-- **`bounce_rate`**: The calculated bounce rate for each source, expressed as a percentage.
-
-The table provides an overview of website traffic from various sources, along with key metrics that help evaluate user engagement and behavior based on four elements: source, total_visits, total_no_of_bounces, bounce_rate. It is evident that Google website received the most traffic to the website at 38,400 visits in the first row . Out of these, 19,798 were single-page visits (bounces), resulting in a bounce rate of approximately 51.56%. Following that **(Direct)** took the second place at 19,891 visits from direct traffic, with 8,606 bounces, leading to a bounce rate of about 43.27%.
-**[Youtube.com](http://Youtube.com) website** had 6,351 visits from YouTube, with 4,238 bounces, resulting in a bounce rate of approximately 66.73%, which was higher than Google and Direct. However, "[search.mysearch.com](http://search.mysearch.com/)."  website had the lowest total visits but the highest bounce rate. It had a total of 12 visits with 11 bounces, resulting in a bounce rate of approximately 91.67%. This indicates that the majority of users who visited the website from this source left without interacting with any other pages. A high bounce rate from a source like "[search.mysearch.com](http://search.mysearch.com/)" suggests that users arriving from this source might not be finding the content they are looking for or that the landing page experience may not be engaging enough to encourage further exploration. It's important to note that while addressing high bounce rates is essential, the context of the source and user behavior should be thoroughly analyzed to determine the most effective strategies for improvement.
-
-A lower bounce rate generally indicates that users are more engaged with the website content, while a higher bounce rate may suggest that users are leaving the site after viewing only a single page.
+The table provides an overview of website traffic from various sources and key metrics that help evaluate user engagement and behavior based on four elements: source, total_visits, total_no_of_bounces, bounce_rate. Google website received the most traffic to the website at 38,400 visits in the first row. Of these, 19,798 were single-page visits (bounces), resulting in a bounce rate of approximately 51.56%. Following that Direct website took second place at 19,891 visits from direct traffic, with 8,606 bounces, leading to a bounce rate of about 43.27%. Thereafter, the Youtube.com website had 6,351 visits, with 4,238 bounces, resulting in a bounce rate of approximately 66.73%, higher than Google and Direct. However, search.mysearch.com website had the lowest total visits but the highest bounce rate. It had 12 visits with 11 bounces, resulting in a bounce rate of approximately 91.67%. This indicates that most users who visited the website from this source left without interacting with other pages. A high bounce rate from a source like search.mysearch.com suggests that users arriving from this source might not find the content they are looking for or that the landing page experience may not be engaging enough to encourage further exploration. It's important to note that while addressing high bounce rates is essential, the context of the source and user behavior should be thoroughly analyzed to determine the most effective strategies for improvement. Because a lower bounce rate generally indicates that users are more engaged with the website content, while a higher bounce rate may suggest that users are leaving the site after viewing only a single page.
 
 **6.3 Revenue by traffic source by week, by month in June 2017**
 ~~~~sql
@@ -342,391 +336,397 @@ ORDER BY revenue DESC;
 | Month     | 201706 | search.myway.com              | 105.94   |
 | Month     | 201706 | groups.google.com             | 101.96   |
 | WEEK      | 201725 | mail.google.com               | 76.27    |
-| WEEK      | 201723 | chat.google.com               | 74.03    |
 | Month     | 201706 | chat.google.com               | 74.03    |
+| WEEK      | 201723 | chat.google.com               | 74.03    |
 | WEEK      | 201724 | dealspotr.com                 | 72.95    |
 | Month     | 201706 | dealspotr.com                 | 72.95    |
 | WEEK      | 201725 | mail.aol.com                  | 64.85    |
 | Month     | 201706 | mail.aol.com                  | 64.85    |
 | WEEK      | 201726 | groups.google.com             | 63.37    |
-| WEEK      | 201725 | phandroid.com                 | 52.95    |
 | Month     | 201706 | phandroid.com                 | 52.95    |
+| WEEK      | 201725 | phandroid.com                 | 52.95    |
 | Month     | 201706 | sites.google.com              | 39.17    |
 | WEEK      | 201725 | groups.google.com             | 38.59    |
 | WEEK      | 201725 | sites.google.com              | 25.19    |
-| WEEK      | 201725 | google.com                    | 23.99    |
 | Month     | 201706 | google.com                    | 23.99    |
-| WEEK      | 201726 | yahoo                         | 20.39    |
+| WEEK      | 201725 | google.com                    | 23.99    |
 | Month     | 201706 | yahoo                         | 20.39    |
-| Month     | 201706 | youtube.com                   | 16.99    |
+| WEEK      | 201726 | yahoo                         | 20.39    |
 | WEEK      | 201723 | youtube.com                   | 16.99    |
-| WEEK      | 201722 | sites.google.com              | 13.98    |
+| Month     | 201706 | youtube.com                   | 16.99    |
 | WEEK      | 201724 | bing                          | 13.98    |
 | Month     | 201706 | bing                          | 13.98    |
+| WEEK      | 201722 | sites.google.com              | 13.98    |
 | WEEK      | 201724 | l.facebook.com                | 12.48    |
 | Month     | 201706 | l.facebook.com                | 12.48    |
-| Month     | 201706 | centrum.cz                    |          |
-| Month     | 201706 | sashihara.jp                  |          |
+| WEEK      | 201724 | t.co                          |          |
+| WEEK      | 201724 | groups.google.com             |          |
+| WEEK      | 201724 | Partners                      |          |
+| WEEK      | 201724 | qiita.com                     |          |
+| WEEK      | 201724 | sashihara.jp                  |          |
+| WEEK      | 201724 | yahoo                         |          |
+| WEEK      | 201724 | youtube.com                   |          |
+| WEEK      | 201724 | l.messenger.com               |          |
+| WEEK      | 201723 | sites.google.com              |          |
+| WEEK      | 201723 | mail.google.com               |          |
+| WEEK      | 201723 | baidu                         |          |
+| WEEK      | 201723 | productforums.google.com      |          |
+| WEEK      | 201723 | google.com                    |          |
+| WEEK      | 201723 | facebook.com                  |          |
+| WEEK      | 201723 | groups.google.com             |          |
+| WEEK      | 201723 | l.facebook.com                |          |
+| WEEK      | 201723 | ask                           |          |
+| WEEK      | 201725 | ask                           |          |
+| WEEK      | 201725 | keep.google.com               |          |
+| WEEK      | 201725 | t.co                          |          |
+| WEEK      | 201726 | optimize.google.com           |          |
+| WEEK      | 201726 | bing                          |          |
+| WEEK      | 201726 | google.co.jp                  |          |
+| WEEK      | 201726 | analytics.google.com          |          |
+| WEEK      | 201726 | sites.google.com              |          |
+| WEEK      | 201726 | quora.com                     |          |
+| WEEK      | 201726 | lm.facebook.com               |          |
+| WEEK      | 201726 | t.co                          |          |
+| WEEK      | 201726 | m.facebook.com                |          |
+| WEEK      | 201726 | search.xfinity.com            |          |
+| WEEK      | 201726 | plus.google.com               |          |
+| WEEK      | 201726 | search.incredibar.com         |          |
+| WEEK      | 201726 | m.youtube.com                 |          |
+| WEEK      | 201726 | suche.t-online.de             |          |
+| WEEK      | 201726 | businessinsider.com           |          |
+| WEEK      | 201724 | connect.googleforwork.com     |          |
+| WEEK      | 201724 | google.com.ua                 |          |
+| WEEK      | 201724 | m.youtube.com                 |          |
+| WEEK      | 201724 | search.mysearch.com           |          |
+| WEEK      | 201724 | phandroid.com                 |          |
+| WEEK      | 201722 | analytics.google.com          |          |
+| WEEK      | 201722 | s0.2mdn.net                   |          |
+| WEEK      | 201722 | Partners                      |          |
+| WEEK      | 201722 | qiita.com                     |          |
+| WEEK      | 201722 | groups.google.com             |          |
+| WEEK      | 201722 | reddit.com                    |          |
+| WEEK      | 201722 | fr.search.yahoo.com           |          |
+| WEEK      | 201722 | google.ca                     |          |
+| WEEK      | 201722 | yahoo                         |          |
+| WEEK      | 201722 | mail.google.com               |          |
+| WEEK      | 201722 | ask                           |          |
+| WEEK      | 201723 | google.com.ua                 |          |
+| WEEK      | 201723 | siliconvalley.about.com       |          |
+| WEEK      | 201723 | m.youtube.com                 |          |
+| WEEK      | 201725 | productforums.google.com      |          |
+| WEEK      | 201724 | docs.google.com               |          |
+| WEEK      | 201724 | outlook.live.com              |          |
+| WEEK      | 201724 | ask                           |          |
+| WEEK      | 201723 | connect.googleforwork.com     |          |
+| WEEK      | 201723 | au.search.yahoo.com           |          |
+| WEEK      | 201723 | google.it                     |          |
+| WEEK      | 201723 | m.baidu.com                   |          |
+| WEEK      | 201723 | lm.facebook.com               |          |
+| WEEK      | 201726 | phandroid.com                 |          |
+| WEEK      | 201726 | myactivity.google.com         |          |
+| WEEK      | 201726 | google.co.th                  |          |
+| WEEK      | 201723 | lunametrics.com               |          |
+| WEEK      | 201723 | datastudio.google.com         |          |
+| WEEK      | 201723 | businessinsider.com           |          |
+| WEEK      | 201723 | int.search.mywebsearch.com    |          |
+| WEEK      | 201726 | dealspotr.com                 |          |
+| WEEK      | 201726 | google.com.au                 |          |
+| WEEK      | 201724 | search.tb.ask.com             |          |
+| WEEK      | 201726 | hangouts.google.com           |          |
+| WEEK      | 201726 | linkedin.com                  |          |
+| WEEK      | 201726 | search.tb.ask.com             |          |
+| WEEK      | 201724 | admin.globalaccess.com        |          |
+| WEEK      | 201724 | search.xfinity.com            |          |
+| WEEK      | 201725 | optimize.google.com           |          |
+| WEEK      | 201725 | lunametrics.com               |          |
+| WEEK      | 201725 | it.search.yahoo.com           |          |
+| WEEK      | 201725 | google.co.in                  |          |
+| WEEK      | 201725 | m.baidu.com                   |          |
+| WEEK      | 201725 | dealspotr.com                 |          |
+| WEEK      | 201722 | lm.facebook.com               |          |
+| WEEK      | 201722 | sashihara.jp                  |          |
+| WEEK      | 201725 | googleads.g.doubleclick.net   |          |
+| WEEK      | 201724 | adwords.google.com            |          |
+| WEEK      | 201722 | search.tb.ask.com             |          |
+| WEEK      | 201722 | l.messenger.com               |          |
+| WEEK      | 201722 | away.vk.com                   |          |
+| WEEK      | 201722 | msn.com                       |          |
+| WEEK      | 201722 | google.co.uk                  |          |
+| Month     | 201706 | google.fr                     |          |
+| Month     | 201706 | googleads.g.doubleclick.net   |          |
+| Month     | 201706 | github.com                    |          |
+| Month     | 201706 | google.it                     |          |
+| Month     | 201706 | away.vk.com                   |          |
+| Month     | 201706 | malaysia.search.yahoo.com     |          |
+| WEEK      | 201724 | sites.google.com              |          |
+| WEEK      | 201724 | reddit.com                    |          |
+| WEEK      | 201724 | analytics.google.com          |          |
+| WEEK      | 201724 | optimize.google.com           |          |
+| WEEK      | 201724 | facebook.com                  |          |
+| WEEK      | 201724 | quora.com                     |          |
+| WEEK      | 201724 | baidu                         |          |
+| WEEK      | 201724 | m.facebook.com                |          |
+| WEEK      | 201724 | plus.url.google.com           |          |
+| WEEK      | 201724 | google.co.jp                  |          |
+| WEEK      | 201723 | m.facebook.com                |          |
+| WEEK      | 201723 | analytics.google.com          |          |
+| WEEK      | 201723 | msn.com                       |          |
+| WEEK      | 201723 | bing                          |          |
+| WEEK      | 201723 | duckduckgo.com                |          |
+| WEEK      | 201723 | sashihara.jp                  |          |
+| WEEK      | 201723 | quora.com                     |          |
+| WEEK      | 201723 | t.co                          |          |
+| WEEK      | 201723 | desktop.google.com.ua         |          |
+| WEEK      | 201723 | search.mysearch.com           |          |
+| WEEK      | 201723 | reddit.com                    |          |
+| WEEK      | 201723 | docs.google.com               |          |
+| WEEK      | 201725 | analytics.google.com          |          |
+| WEEK      | 201725 | bing                          |          |
+| WEEK      | 201725 | baidu                         |          |
+| WEEK      | 201725 | yahoo                         |          |
+| WEEK      | 201725 | duckduckgo.com                |          |
+| WEEK      | 201725 | Partners                      |          |
+| WEEK      | 201725 | sashihara.jp                  |          |
+| WEEK      | 201725 | google.co.jp                  |          |
+| WEEK      | 201725 | dfa                           |          |
+| WEEK      | 201725 | l.facebook.com                |          |
+| WEEK      | 201725 | msn.com                       |          |
+| WEEK      | 201725 | au.search.yahoo.com           |          |
+| WEEK      | 201725 | youtube.com                   |          |
+| WEEK      | 201726 | qiita.com                     |          |
+| WEEK      | 201726 | l.facebook.com                |          |
+| WEEK      | 201726 | docs.google.com               |          |
+| WEEK      | 201726 | reddit.com                    |          |
+| WEEK      | 201726 | mail.google.com               |          |
+| WEEK      | 201726 | pinterest.com                 |          |
+| WEEK      | 201726 | productforums.google.com      |          |
+| WEEK      | 201726 | github.com                    |          |
+| WEEK      | 201726 | google.fr                     |          |
+| WEEK      | 201724 | es.search.yahoo.com           |          |
+| WEEK      | 201724 | getpocket.com                 |          |
+| WEEK      | 201724 | google.co.th                  |          |
+| WEEK      | 201722 | google.com                    |          |
+| WEEK      | 201722 | youtube.com                   |          |
+| WEEK      | 201722 | bing                          |          |
+| WEEK      | 201722 | search.mysearch.com           |          |
+| WEEK      | 201722 | m.youtube.com                 |          |
+| WEEK      | 201724 | gsuite.google.com             |          |
+| WEEK      | 201724 | staging.talkgadget.google.com |          |
+| WEEK      | 201723 | nl.search.yahoo.com           |          |
+| WEEK      | 201723 | phandroid.com                 |          |
+| WEEK      | 201723 | kidrex.org                    |          |
+| WEEK      | 201723 | google.es                     |          |
+| WEEK      | 201726 | google.co.uk                  |          |
+| WEEK      | 201723 | google.nl                     |          |
+| WEEK      | 201723 | in.search.yahoo.com           |          |
+| WEEK      | 201723 | support.google.com            |          |
+| WEEK      | 201723 | github.com                    |          |
+| WEEK      | 201723 | search.xfinity.com            |          |
+| WEEK      | 201723 | google.com.tw                 |          |
+| WEEK      | 201726 | googleads.g.doubleclick.net   |          |
+| WEEK      | 201726 | getiriver.com                 |          |
+| WEEK      | 201726 | google.ca                     |          |
+| WEEK      | 201724 | linkedin.com                  |          |
+| WEEK      | 201723 | outlook.live.com              |          |
+| WEEK      | 201723 | search.tb.ask.com             |          |
+| WEEK      | 201726 | m.yz.sm.cn                    |          |
+| WEEK      | 201726 | nl.search.yahoo.com           |          |
+| WEEK      | 201724 | google.com.au                 |          |
+| WEEK      | 201724 | lm.facebook.com               |          |
+| WEEK      | 201725 | support.google.com            |          |
+| WEEK      | 201725 | google.es                     |          |
+| WEEK      | 201725 | search.xfinity.com            |          |
+| WEEK      | 201722 | dealspotr.com                 |          |
+| WEEK      | 201722 | tw.search.yahoo.com           |          |
+| WEEK      | 201725 | l.messenger.com               |          |
+| WEEK      | 201725 | google.de                     |          |
+| WEEK      | 201722 | search.earthlink.net          |          |
+| WEEK      | 201724 | plus.google.com               |          |
+| WEEK      | 201725 | google.co.uk                  |          |
+| WEEK      | 201725 | linkedin.com                  |          |
+| Month     | 201706 | kidrex.org                    |          |
+| Month     | 201706 | m.yz.sm.cn                    |          |
+| Month     | 201706 | google.co.uk                  |          |
+| Month     | 201706 | gsuite.google.com             |          |
+| Month     | 201706 | search.tb.ask.com             |          |
+| Month     | 201706 | adwords.google.com            |          |
+| Month     | 201706 | google.com.au                 |          |
+| Month     | 201706 | myactivity.google.com         |          |
+| Month     | 201706 | int.search.tb.ask.com         |          |
+| Month     | 201706 | plus.url.google.com           |          |
+| Month     | 201706 | s0.2mdn.net                   |          |
+| Month     | 201706 | google.ru                     |          |
+| Month     | 201706 | google.com.tw                 |          |
+| Month     | 201706 | search.mysearch.com           |          |
+| Month     | 201706 | search.incredibar.com         |          |
+| Month     | 201706 | google.nl                     |          |
+| Month     | 201706 | reddit.com                    |          |
+| Month     | 201706 | l.messenger.com               |          |
+| Month     | 201706 | businessinsider.com           |          |
+| Month     | 201706 | quora.com                     |          |
+| Month     | 201706 | siliconvalley.about.com       |          |
+| Month     | 201706 | productforums.google.com      |          |
+| Month     | 201706 | m.facebook.com                |          |
+| Month     | 201706 | Partners                      |          |
+| Month     | 201706 | msn.com                       |          |
+| Month     | 201706 | suche.t-online.de             |          |
+| Month     | 201706 | desktop.google.com.ua         |          |
+| Month     | 201706 | m.youtube.com                 |          |
+| Month     | 201706 | mg.mail.yahoo.com             |          |
+| Month     | 201706 | support.google.com            |          |
+| Month     | 201706 | docs.google.com               |          |
+| Month     | 201706 | lunametrics.com               |          |
+| Month     | 201706 | gophergala.com                |          |
+| Month     | 201706 | m.baidu.com                   |          |
+| Month     | 201706 | linkedin.com                  |          |
+| Month     | 201706 | search.earthlink.net          |          |
+| Month     | 201706 | it.search.yahoo.com           |          |
+| Month     | 201706 | connect.googleforwork.com     |          |
+| Month     | 201706 | google.es                     |          |
 | Month     | 201706 | getiriver.com                 |          |
 | Month     | 201706 | online.fullsail.edu           |          |
+| Month     | 201706 | sashihara.jp                  |          |
+| Month     | 201706 | centrum.cz                    |          |
 | Month     | 201706 | analytics.google.com          |          |
-| Month     | 201706 | pinterest.com                 |          |
-| Month     | 201706 | blog.golang.org               |          |
-| Month     | 201706 | admin.globalaccess.com        |          |
-| Month     | 201706 | lm.facebook.com               |          |
-| Month     | 201706 | hangouts.google.com           |          |
-| WEEK      | 201725 | reddit.com                    |          |
-| WEEK      | 201725 | quora.com                     |          |
-| WEEK      | 201725 | qiita.com                     |          |
-| WEEK      | 201725 | online-metrics.com            |          |
-| WEEK      | 201725 | blog.golang.org               |          |
+| Month     | 201706 | qiita.com                     |          |
+| Month     | 201706 | google.co.jp                  |          |
+| Month     | 201706 | facebook.com                  |          |
+| Month     | 201706 | aol                           |          |
+| Month     | 201706 | au.search.yahoo.com           |          |
+| Month     | 201706 | getpocket.com                 |          |
+| Month     | 201706 | google.de                     |          |
+| Month     | 201706 | google.com.ua                 |          |
+| Month     | 201706 | keep.google.com               |          |
+| WEEK      | 201724 | mg.mail.yahoo.com             |          |
 | WEEK      | 201724 | google.com                    |          |
-| WEEK      | 201724 | productforums.google.com      |          |
-| WEEK      | 201724 | s0.2mdn.net                   |          |
 | WEEK      | 201724 | blog.golang.org               |          |
-| WEEK      | 201724 | lunametrics.com               |          |
-| WEEK      | 201724 | google.co.uk                  |          |
+| WEEK      | 201724 | productforums.google.com      |          |
+| WEEK      | 201724 | int.search.tb.ask.com         |          |
+| WEEK      | 201724 | duckduckgo.com                |          |
 | WEEK      | 201724 | support.google.com            |          |
 | WEEK      | 201723 | yahoo                         |          |
 | WEEK      | 201723 | Partners                      |          |
+| WEEK      | 201723 | plus.google.com               |          |
+| WEEK      | 201723 | fr.search.yahoo.com           |          |
 | WEEK      | 201723 | google.co.jp                  |          |
+| WEEK      | 201723 | googleads.g.doubleclick.net   |          |
 | WEEK      | 201723 | qiita.com                     |          |
+| WEEK      | 201723 | tw.search.yahoo.com           |          |
 | WEEK      | 201723 | int.search.tb.ask.com         |          |
-| WEEK      | 201723 | myactivity.google.com         |          |
-| WEEK      | 201723 | blog.golang.org               |          |
-| WEEK      | 201723 | optimize.google.com           |          |
-| WEEK      | 201723 | google.co.uk                  |          |
-| WEEK      | 201724 | github.com                    |          |
-| WEEK      | 201724 | int.search.tb.ask.com         |          |
-| WEEK      | 201726 | youtube.com                   |          |
-| WEEK      | 201726 | Partners                      |          |
-| WEEK      | 201726 | search.mysearch.com           |          |
-| WEEK      | 201726 | google.com                    |          |
+| WEEK      | 201725 | reddit.com                    |          |
+| WEEK      | 201725 | quora.com                     |          |
+| WEEK      | 201725 | connect.googleforwork.com     |          |
+| WEEK      | 201725 | qiita.com                     |          |
+| WEEK      | 201725 | blog.golang.org               |          |
+| WEEK      | 201725 | m.facebook.com                |          |
+| WEEK      | 201725 | docs.google.com               |          |
+| WEEK      | 201726 | malaysia.search.yahoo.com     |          |
+| WEEK      | 201726 | int.search.tb.ask.com         |          |
 | WEEK      | 201726 | baidu                         |          |
 | WEEK      | 201726 | duckduckgo.com                |          |
-| WEEK      | 201726 | ask                           |          |
-| WEEK      | 201726 | facebook.com                  |          |
-| WEEK      | 201726 | malaysia.search.yahoo.com     |          |
-| WEEK      | 201726 | sashihara.jp                  |          |
+| WEEK      | 201726 | Partners                      |          |
+| WEEK      | 201726 | google.com                    |          |
+| WEEK      | 201726 | datastudio.google.com         |          |
 | WEEK      | 201726 | blog.golang.org               |          |
+| WEEK      | 201726 | facebook.com                  |          |
+| WEEK      | 201726 | ask                           |          |
+| WEEK      | 201726 | youtube.com                   |          |
+| WEEK      | 201726 | l.messenger.com               |          |
+| WEEK      | 201726 | search.mysearch.com           |          |
+| WEEK      | 201726 | sashihara.jp                  |          |
 | WEEK      | 201726 | m.baidu.com                   |          |
 | WEEK      | 201726 | adwords.google.com            |          |
-| WEEK      | 201725 | search.tb.ask.com             |          |
-| WEEK      | 201725 | m.facebook.com                |          |
-| WEEK      | 201725 | facebook.com                  |          |
+| WEEK      | 201724 | google.co.uk                  |          |
 | WEEK      | 201724 | googleads.g.doubleclick.net   |          |
 | WEEK      | 201724 | hangouts.google.com           |          |
 | WEEK      | 201724 | google.ru                     |          |
-| WEEK      | 201726 | int.search.tb.ask.com         |          |
-| WEEK      | 201726 | datastudio.google.com         |          |
-| WEEK      | 201726 | l.messenger.com               |          |
-| WEEK      | 201725 | google.com.pe                 |          |
-| WEEK      | 201724 | mg.mail.yahoo.com             |          |
-| WEEK      | 201724 | duckduckgo.com                |          |
-| WEEK      | 201725 | google.ca                     |          |
-| WEEK      | 201725 | m.youtube.com                 |          |
-| WEEK      | 201725 | google.co.th                  |          |
-| WEEK      | 201722 | quora.com                     |          |
+| WEEK      | 201724 | lunametrics.com               |          |
 | WEEK      | 201722 | duckduckgo.com                |          |
-| WEEK      | 201722 | baidu                         |          |
-| WEEK      | 201722 | facebook.com                  |          |
-| WEEK      | 201722 | phandroid.com                 |          |
 | WEEK      | 201722 | google.co.jp                  |          |
-| WEEK      | 201722 | int.search.tb.ask.com         |          |
+| WEEK      | 201722 | optimize.google.com           |          |
+| WEEK      | 201722 | quora.com                     |          |
+| WEEK      | 201722 | blog.golang.org               |          |
+| WEEK      | 201722 | l.facebook.com                |          |
+| WEEK      | 201722 | facebook.com                  |          |
+| WEEK      | 201722 | productforums.google.com      |          |
+| WEEK      | 201722 | baidu                         |          |
+| WEEK      | 201722 | support.google.com            |          |
+| WEEK      | 201722 | t.co                          |          |
 | WEEK      | 201722 | m.facebook.com                |          |
+| WEEK      | 201722 | plus.google.com               |          |
+| WEEK      | 201722 | search.myway.com              |          |
+| WEEK      | 201723 | sg.search.yahoo.com           |          |
+| WEEK      | 201723 | dealspotr.com                 |          |
+| WEEK      | 201723 | optimize.google.com           |          |
+| WEEK      | 201723 | google.co.in                  |          |
+| WEEK      | 201725 | google.com.pe                 |          |
+| WEEK      | 201725 | facebook.com                  |          |
+| WEEK      | 201723 | google.co.uk                  |          |
+| WEEK      | 201723 | l.messenger.com               |          |
+| WEEK      | 201723 | blog.golang.org               |          |
+| WEEK      | 201723 | gophergala.com                |          |
+| WEEK      | 201726 | msn.com                       |          |
+| WEEK      | 201726 | centrum.cz                    |          |
 | WEEK      | 201726 | away.vk.com                   |          |
+| WEEK      | 201723 | online.fullsail.edu           |          |
+| WEEK      | 201723 | es.search.yahoo.com           |          |
+| WEEK      | 201723 | myactivity.google.com         |          |
+| WEEK      | 201723 | getpocket.com                 |          |
+| WEEK      | 201723 | aol                           |          |
 | WEEK      | 201726 | support.google.com            |          |
 | WEEK      | 201726 | lunametrics.com               |          |
 | WEEK      | 201726 | google.com.ua                 |          |
 | WEEK      | 201726 | google.it                     |          |
-| WEEK      | 201723 | l.messenger.com               |          |
-| WEEK      | 201723 | gophergala.com                |          |
-| WEEK      | 201722 | chat.google.com               |          |
-| WEEK      | 201722 | plus.google.com               |          |
-| WEEK      | 201722 | l.facebook.com                |          |
-| WEEK      | 201722 | support.google.com            |          |
-| WEEK      | 201722 | meetup.com                    |          |
-| WEEK      | 201722 | search.myway.com              |          |
-| WEEK      | 201722 | productforums.google.com      |          |
-| WEEK      | 201722 | blog.golang.org               |          |
-| WEEK      | 201726 | msn.com                       |          |
-| WEEK      | 201726 | centrum.cz                    |          |
-| WEEK      | 201723 | googleads.g.doubleclick.net   |          |
+| WEEK      | 201724 | github.com                    |          |
 | WEEK      | 201726 | keep.google.com               |          |
+| WEEK      | 201724 | s0.2mdn.net                   |          |
+| WEEK      | 201725 | search.tb.ask.com             |          |
+| WEEK      | 201725 | google.ca                     |          |
+| WEEK      | 201725 | m.youtube.com                 |          |
+| WEEK      | 201725 | google.co.th                  |          |
+| WEEK      | 201722 | phandroid.com                 |          |
+| WEEK      | 201722 | int.search.tb.ask.com         |          |
+| WEEK      | 201725 | online-metrics.com            |          |
 | WEEK      | 201722 | google.es                     |          |
 | WEEK      | 201722 | desktop.google.com.ua         |          |
-| WEEK      | 201723 | sg.search.yahoo.com           |          |
-| WEEK      | 201723 | dealspotr.com                 |          |
-| WEEK      | 201723 | google.co.in                  |          |
-| WEEK      | 201723 | online.fullsail.edu           |          |
-| WEEK      | 201723 | es.search.yahoo.com           |          |
-| WEEK      | 201723 | getpocket.com                 |          |
-| WEEK      | 201723 | aol                           |          |
+| WEEK      | 201722 | chat.google.com               |          |
+| WEEK      | 201722 | meetup.com                    |          |
 | WEEK      | 201725 | google.com.au                 |          |
-| WEEK      | 201725 | docs.google.com               |          |
 | WEEK      | 201725 | int.search.tb.ask.com         |          |
-| WEEK      | 201723 | plus.google.com               |          |
-| WEEK      | 201723 | fr.search.yahoo.com           |          |
-| WEEK      | 201723 | tw.search.yahoo.com           |          |
-| WEEK      | 201725 | connect.googleforwork.com     |          |
-| WEEK      | 201722 | optimize.google.com           |          |
-| WEEK      | 201722 | t.co                          |          |
-| Month     | 201706 | fr.search.yahoo.com           |          |
-| Month     | 201706 | ask                           |          |
-| Month     | 201706 | google.ca                     |          |
-| Month     | 201706 | int.search.mywebsearch.com    |          |
 | Month     | 201706 | nl.search.yahoo.com           |          |
 | Month     | 201706 | t.co                          |          |
-| Month     | 201706 | staging.talkgadget.google.com |          |
 | Month     | 201706 | online-metrics.com            |          |
-| WEEK      | 201725 | Partners                      |          |
-| WEEK      | 201725 | sashihara.jp                  |          |
-| WEEK      | 201725 | analytics.google.com          |          |
-| WEEK      | 201725 | support.google.com            |          |
-| WEEK      | 201725 | dfa                           |          |
-| WEEK      | 201725 | baidu                         |          |
-| WEEK      | 201725 | bing                          |          |
-| WEEK      | 201725 | youtube.com                   |          |
-| WEEK      | 201725 | l.messenger.com               |          |
-| WEEK      | 201725 | google.co.jp                  |          |
-| WEEK      | 201725 | yahoo                         |          |
-| WEEK      | 201725 | google.de                     |          |
-| WEEK      | 201724 | analytics.google.com          |          |
-| WEEK      | 201724 | facebook.com                  |          |
-| WEEK      | 201724 | reddit.com                    |          |
-| WEEK      | 201724 | quora.com                     |          |
-| WEEK      | 201724 | sites.google.com              |          |
-| WEEK      | 201724 | m.facebook.com                |          |
-| WEEK      | 201724 | baidu                         |          |
-| WEEK      | 201724 | google.co.jp                  |          |
-| WEEK      | 201724 | google.com.au                 |          |
-| WEEK      | 201724 | staging.talkgadget.google.com |          |
-| WEEK      | 201724 | lm.facebook.com               |          |
-| WEEK      | 201723 | quora.com                     |          |
-| WEEK      | 201723 | analytics.google.com          |          |
-| WEEK      | 201723 | bing                          |          |
-| WEEK      | 201723 | outlook.live.com              |          |
-| WEEK      | 201723 | reddit.com                    |          |
-| WEEK      | 201723 | t.co                          |          |
-| WEEK      | 201723 | search.tb.ask.com             |          |
-| WEEK      | 201723 | m.facebook.com                |          |
-| WEEK      | 201723 | search.mysearch.com           |          |
-| WEEK      | 201723 | phandroid.com                 |          |
-| WEEK      | 201723 | google.nl                     |          |
-| WEEK      | 201723 | docs.google.com               |          |
-| WEEK      | 201723 | desktop.google.com.ua         |          |
-| WEEK      | 201723 | in.search.yahoo.com           |          |
-| WEEK      | 201723 | sashihara.jp                  |          |
-| WEEK      | 201723 | duckduckgo.com                |          |
-| WEEK      | 201723 | support.google.com            |          |
-| WEEK      | 201724 | linkedin.com                  |          |
-| WEEK      | 201726 | productforums.google.com      |          |
-| WEEK      | 201726 | github.com                    |          |
-| WEEK      | 201726 | qiita.com                     |          |
-| WEEK      | 201726 | mail.google.com               |          |
-| WEEK      | 201726 | reddit.com                    |          |
-| WEEK      | 201726 | google.fr                     |          |
-| WEEK      | 201726 | docs.google.com               |          |
-| WEEK      | 201726 | l.facebook.com                |          |
-| WEEK      | 201725 | google.co.uk                  |          |
-| WEEK      | 201725 | linkedin.com                  |          |
-| WEEK      | 201725 | msn.com                       |          |
-| WEEK      | 201724 | es.search.yahoo.com           |          |
-| WEEK      | 201724 | getpocket.com                 |          |
-| WEEK      | 201724 | google.co.th                  |          |
-| WEEK      | 201724 | optimize.google.com           |          |
-| WEEK      | 201726 | pinterest.com                 |          |
-| WEEK      | 201724 | plus.google.com               |          |
-| WEEK      | 201724 | gsuite.google.com             |          |
-| WEEK      | 201724 | plus.url.google.com           |          |
-| WEEK      | 201725 | google.es                     |          |
-| WEEK      | 201725 | search.xfinity.com            |          |
-| WEEK      | 201725 | l.facebook.com                |          |
-| WEEK      | 201722 | dealspotr.com                 |          |
-| WEEK      | 201722 | google.com                    |          |
-| WEEK      | 201722 | youtube.com                   |          |
-| WEEK      | 201722 | tw.search.yahoo.com           |          |
-| WEEK      | 201722 | bing                          |          |
-| WEEK      | 201722 | m.youtube.com                 |          |
-| WEEK      | 201726 | google.co.uk                  |          |
-| WEEK      | 201726 | googleads.g.doubleclick.net   |          |
-| WEEK      | 201726 | getiriver.com                 |          |
-| WEEK      | 201726 | google.ca                     |          |
-| WEEK      | 201723 | nl.search.yahoo.com           |          |
-| WEEK      | 201723 | kidrex.org                    |          |
-| WEEK      | 201722 | search.earthlink.net          |          |
-| WEEK      | 201722 | search.mysearch.com           |          |
-| WEEK      | 201723 | google.es                     |          |
-| WEEK      | 201723 | msn.com                       |          |
-| WEEK      | 201726 | m.yz.sm.cn                    |          |
-| WEEK      | 201726 | nl.search.yahoo.com           |          |
-| WEEK      | 201723 | github.com                    |          |
-| WEEK      | 201723 | search.xfinity.com            |          |
-| WEEK      | 201723 | google.com.tw                 |          |
-| WEEK      | 201725 | duckduckgo.com                |          |
-| WEEK      | 201725 | au.search.yahoo.com           |          |
-| Month     | 201706 | siliconvalley.about.com       |          |
-| Month     | 201706 | quora.com                     |          |
-| Month     | 201706 | Partners                      |          |
-| Month     | 201706 | m.facebook.com                |          |
-| Month     | 201706 | productforums.google.com      |          |
-| Month     | 201706 | int.search.tb.ask.com         |          |
-| Month     | 201706 | plus.url.google.com           |          |
-| Month     | 201706 | google.fr                     |          |
-| Month     | 201706 | away.vk.com                   |          |
-| Month     | 201706 | google.it                     |          |
-| Month     | 201706 | malaysia.search.yahoo.com     |          |
-| Month     | 201706 | github.com                    |          |
-| Month     | 201706 | googleads.g.doubleclick.net   |          |
-| Month     | 201706 | google.co.uk                  |          |
-| Month     | 201706 | m.yz.sm.cn                    |          |
-| Month     | 201706 | kidrex.org                    |          |
-| Month     | 201706 | msn.com                       |          |
-| Month     | 201706 | suche.t-online.de             |          |
-| Month     | 201706 | desktop.google.com.ua         |          |
-| Month     | 201706 | m.baidu.com                   |          |
-| Month     | 201706 | gophergala.com                |          |
-| Month     | 201706 | lunametrics.com               |          |
-| Month     | 201706 | support.google.com            |          |
-| Month     | 201706 | docs.google.com               |          |
-| Month     | 201706 | linkedin.com                  |          |
-| Month     | 201706 | mg.mail.yahoo.com             |          |
-| Month     | 201706 | m.youtube.com                 |          |
-| WEEK      | 201725 | t.co                          |          |
-| WEEK      | 201725 | optimize.google.com           |          |
-| WEEK      | 201725 | lunametrics.com               |          |
-| WEEK      | 201725 | googleads.g.doubleclick.net   |          |
-| WEEK      | 201724 | Partners                      |          |
-| WEEK      | 201724 | docs.google.com               |          |
-| WEEK      | 201724 | admin.globalaccess.com        |          |
-| WEEK      | 201724 | youtube.com                   |          |
-| WEEK      | 201724 | qiita.com                     |          |
-| WEEK      | 201724 | m.youtube.com                 |          |
-| WEEK      | 201724 | yahoo                         |          |
-| WEEK      | 201724 | t.co                          |          |
-| WEEK      | 201724 | groups.google.com             |          |
-| WEEK      | 201724 | connect.googleforwork.com     |          |
-| WEEK      | 201724 | search.xfinity.com            |          |
-| WEEK      | 201724 | sashihara.jp                  |          |
-| WEEK      | 201723 | baidu                         |          |
-| WEEK      | 201723 | google.com                    |          |
-| WEEK      | 201723 | sites.google.com              |          |
-| WEEK      | 201723 | facebook.com                  |          |
-| WEEK      | 201723 | l.facebook.com                |          |
-| WEEK      | 201723 | m.youtube.com                 |          |
-| WEEK      | 201723 | groups.google.com             |          |
-| WEEK      | 201723 | lunametrics.com               |          |
-| WEEK      | 201723 | datastudio.google.com         |          |
-| WEEK      | 201723 | productforums.google.com      |          |
-| WEEK      | 201723 | mail.google.com               |          |
-| WEEK      | 201723 | businessinsider.com           |          |
-| WEEK      | 201724 | search.tb.ask.com             |          |
-| WEEK      | 201726 | analytics.google.com          |          |
-| WEEK      | 201726 | bing                          |          |
-| WEEK      | 201726 | search.incredibar.com         |          |
-| WEEK      | 201726 | quora.com                     |          |
-| WEEK      | 201726 | t.co                          |          |
-| WEEK      | 201726 | m.facebook.com                |          |
-| WEEK      | 201726 | m.youtube.com                 |          |
-| WEEK      | 201726 | sites.google.com              |          |
-| WEEK      | 201726 | optimize.google.com           |          |
-| WEEK      | 201726 | suche.t-online.de             |          |
-| WEEK      | 201726 | google.co.jp                  |          |
-| WEEK      | 201726 | businessinsider.com           |          |
-| WEEK      | 201725 | productforums.google.com      |          |
-| WEEK      | 201725 | dealspotr.com                 |          |
-| WEEK      | 201724 | google.com.ua                 |          |
-| WEEK      | 201724 | search.mysearch.com           |          |
-| WEEK      | 201724 | phandroid.com                 |          |
-| WEEK      | 201726 | lm.facebook.com               |          |
-| WEEK      | 201726 | search.xfinity.com            |          |
-| WEEK      | 201726 | plus.google.com               |          |
-| WEEK      | 201725 | ask                           |          |
-| WEEK      | 201725 | keep.google.com               |          |
-| WEEK      | 201724 | l.messenger.com               |          |
-| WEEK      | 201724 | outlook.live.com              |          |
-| WEEK      | 201724 | ask                           |          |
-| WEEK      | 201725 | it.search.yahoo.com           |          |
-| WEEK      | 201725 | google.co.in                  |          |
-| WEEK      | 201725 | m.baidu.com                   |          |
-| WEEK      | 201724 | adwords.google.com            |          |
-| WEEK      | 201722 | Partners                      |          |
-| WEEK      | 201722 | yahoo                         |          |
-| WEEK      | 201722 | analytics.google.com          |          |
-| WEEK      | 201722 | lm.facebook.com               |          |
-| WEEK      | 201722 | groups.google.com             |          |
-| WEEK      | 201722 | qiita.com                     |          |
-| WEEK      | 201722 | sashihara.jp                  |          |
-| WEEK      | 201722 | mail.google.com               |          |
-| WEEK      | 201726 | dealspotr.com                 |          |
-| WEEK      | 201726 | google.com.au                 |          |
-| WEEK      | 201723 | connect.googleforwork.com     |          |
-| WEEK      | 201722 | away.vk.com                   |          |
-| WEEK      | 201722 | ask                           |          |
-| WEEK      | 201722 | msn.com                       |          |
-| WEEK      | 201722 | google.co.uk                  |          |
-| WEEK      | 201722 | s0.2mdn.net                   |          |
-| WEEK      | 201722 | reddit.com                    |          |
-| WEEK      | 201726 | phandroid.com                 |          |
-| WEEK      | 201726 | myactivity.google.com         |          |
-| WEEK      | 201726 | google.co.th                  |          |
-| WEEK      | 201723 | au.search.yahoo.com           |          |
-| WEEK      | 201723 | google.it                     |          |
-| WEEK      | 201723 | ask                           |          |
-| WEEK      | 201723 | m.baidu.com                   |          |
-| WEEK      | 201723 | lm.facebook.com               |          |
-| WEEK      | 201726 | hangouts.google.com           |          |
-| WEEK      | 201726 | linkedin.com                  |          |
-| WEEK      | 201726 | search.tb.ask.com             |          |
-| WEEK      | 201722 | search.tb.ask.com             |          |
-| WEEK      | 201722 | l.messenger.com               |          |
-| WEEK      | 201723 | google.com.ua                 |          |
-| WEEK      | 201723 | siliconvalley.about.com       |          |
-| WEEK      | 201723 | int.search.mywebsearch.com    |          |
-| WEEK      | 201722 | fr.search.yahoo.com           |          |
-| WEEK      | 201722 | google.ca                     |          |
-| Month     | 201706 | datastudio.google.com         |          |
-| Month     | 201706 | plus.google.com               |          |
-| Month     | 201706 | google.co.th                  |          |
-| Month     | 201706 | es.search.yahoo.com           |          |
-| Month     | 201706 | meetup.com                    |          |
-| Month     | 201706 | myactivity.google.com         |          |
-| Month     | 201706 | connect.googleforwork.com     |          |
-| Month     | 201706 | it.search.yahoo.com           |          |
-| Month     | 201706 | google.es                     |          |
-| Month     | 201706 | search.earthlink.net          |          |
-| Month     | 201706 | keep.google.com               |          |
-| Month     | 201706 | google.de                     |          |
-| Month     | 201706 | getpocket.com                 |          |
-| Month     | 201706 | google.com.ua                 |          |
-| Month     | 201706 | au.search.yahoo.com           |          |
-| Month     | 201706 | google.com.tw                 |          |
-| Month     | 201706 | google.ru                     |          |
-| Month     | 201706 | businessinsider.com           |          |
-| Month     | 201706 | l.messenger.com               |          |
-| Month     | 201706 | s0.2mdn.net                   |          |
-| Month     | 201706 | google.nl                     |          |
-| Month     | 201706 | reddit.com                    |          |
-| Month     | 201706 | search.mysearch.com           |          |
-| Month     | 201706 | search.incredibar.com         |          |
-| Month     | 201706 | google.co.in                  |          |
+| Month     | 201706 | staging.talkgadget.google.com |          |
+| Month     | 201706 | lm.facebook.com               |          |
+| Month     | 201706 | admin.globalaccess.com        |          |
+| Month     | 201706 | blog.golang.org               |          |
+| Month     | 201706 | pinterest.com                 |          |
+| Month     | 201706 | hangouts.google.com           |          |
+| Month     | 201706 | google.ca                     |          |
+| Month     | 201706 | ask                           |          |
+| Month     | 201706 | fr.search.yahoo.com           |          |
+| Month     | 201706 | int.search.mywebsearch.com    |          |
+| Month     | 201706 | search.xfinity.com            |          |
+| Month     | 201706 | sg.search.yahoo.com           |          |
+| Month     | 201706 | in.search.yahoo.com           |          |
+| Month     | 201706 | duckduckgo.com                |          |
+| Month     | 201706 | tw.search.yahoo.com           |          |
 | Month     | 201706 | optimize.google.com           |          |
 | Month     | 201706 | outlook.live.com              |          |
 | Month     | 201706 | google.com.pe                 |          |
+| Month     | 201706 | google.co.in                  |          |
 | Month     | 201706 | baidu                         |          |
-| Month     | 201706 | search.xfinity.com            |          |
-| Month     | 201706 | in.search.yahoo.com           |          |
-| Month     | 201706 | sg.search.yahoo.com           |          |
-| Month     | 201706 | duckduckgo.com                |          |
-| Month     | 201706 | tw.search.yahoo.com           |          |
-| Month     | 201706 | qiita.com                     |          |
-| Month     | 201706 | aol                           |          |
-| Month     | 201706 | facebook.com                  |          |
-| Month     | 201706 | google.co.jp                  |          |
-| Month     | 201706 | search.tb.ask.com             |          |
-| Month     | 201706 | gsuite.google.com             |          |
-| Month     | 201706 | google.com.au                 |          |
-| Month     | 201706 | adwords.google.com            |          |
+| Month     | 201706 | es.search.yahoo.com           |          |
+| Month     | 201706 | datastudio.google.com         |          |
+| Month     | 201706 | google.co.th                  |          |
+| Month     | 201706 | meetup.com                    |          |
+| Month     | 201706 | plus.google.com               |          |
+
+This table represents revenue data collection with various attributes, including time type, time period, source, and revenue amount. Each row corresponds to a specific time period (week or month) and provides information about the revenue generated from different sources during that time period. The author found the insights bellow through the table above.
+
+ **Direct Revenue and Source Breakdown:** The dataset includes revenue from various sources, such as (direct), Google, dfa, mail.google.com, search engines like myway.com, and others. Revenue comes from different sources, including direct website visits, organic search traffic, and referrals from various websites.
+**Time Period Analysis:**
+Revenue is reported on a weekly and monthly basis. It seems like the data spans multiple months, including the month labeled "201706."
 
 **6.4 Average number of pageviews by purchaser type**
 ~~~~sql
@@ -787,9 +787,8 @@ FROM GET_AVG_7_MONTH;
 |--------|---------------------------------|
 | 201707 | 1.112033195                     |
 
-The table shows the average total transactions per user on July. 
-This data suggests that, during July 2017, the typical user conducted about 1.11 transactions on average. 
-This could be useful for understanding user behavior, tracking user engagement with your platform, or evaluating the effectiveness of marketing campaigns or promotions during that specific month.
+The table shows the average total transactions per user in July. 
+This data suggests that, during July 2017, the typical user conducted about 1.11 transactions on average. This could be useful for understanding user behavior, tracking user engagement with your platform, or evaluating the effectiveness of marketing campaigns or promotions during that specific month.
 
 **6.6 Average amount of money spent per session. Only include purchaser data in 2017**
 ~~~~sql
@@ -956,11 +955,11 @@ ORDER BY month;
 | 201703 | 23549            | 8782          | 6018         | 37.29            | 25.56         |
 
 
-The table illustrates five different various metrics and rates related to user behavior from January to March 2017.
+The table illustrates five various metrics and rates related to user behavior from January to March 2017.
 
 Overall, the number of product views from January 2017 to March 2017 increased gradually. The add-to-cart rate and purchase rate also increased over the same period, indicating improved user engagement and conversion.
 
-However , the add-to-cart rate and purchase rate are notably higher in March 2017, suggesting potential improvements in the website's user experience or marketing efforts.
+However, the add-to-cart rate and purchase rate are notably higher in March 2017, suggesting potential improvements in the website's user experience or marketing efforts.
 
 
 <div id='cau7'/>
