@@ -2,8 +2,8 @@
 ## Table of Contents:
 1. [Introduction and Motivation](#data)
 2. [The goal of creating this project](#clean_data)
-3. [Import raw data](#Import_raw_data)
-4. [Read and explain dataset](#Read_and_explain_dataset)
+3. [Import raw data](#cau3)
+4. [Read and explain dataset](#cau4)
 5. [ Data Processing & Exploratory Data Analysis](#cau5)
 6. [Ask questions and solve it](#cau6)
 7. [Conclusion](#cau7)
@@ -27,7 +27,7 @@ To query and work with this dataset, the author uses the Google BigQuery tool to
 - Transactions analysis
 - Products analysis
 
-<div id='Import_raw_data'/>
+<div id='cau3'/>
   
 ## 3.Import raw data
   
@@ -38,7 +38,7 @@ The eCommerce dataset is stored in a public Google BigQuery dataset. To access t
 - Enter the project ID **"bigquery-public-data.google_analytics_sample.ga_sessions"** and click "Enter".
 - Click on the **"ga_sessions_"** table to open it.
   
-<div id='Read_and_explain_dataset'/>
+<div id='cau4'/>
   
 ## 4. Read and explain dataset
 
