@@ -958,8 +958,11 @@ However, the add-to-cart rate and purchase rate are notably higher in March 2017
 <div id='cau7'/>
   
 ## 7.Conclusion
-In analyzing the e-commerce dataset using BigQuery, the author delved into various aspects of customer behavior, sales patterns, and business performance. The dataset provided a comprehensive view of transactions and user engagement, enabling the author to derive actionable insights. Several key takeaways emerged from the author's exploration. 
 
-Firstly, the author observed fluctuations in sales and revenue across different periods. Peaks and troughs might be attributed to seasonality, promotions, or external factors. Identifying these trends can help the business plan inventory, marketing campaigns, and resource allocation more effectively. Secondly, calculating conversion rates allowed the author to gauge the effectiveness of the website's user experience and sales funnel. The business can implement improvements to enhance the conversion process by identifying potential drop-off points. Following that, the exploration of user activity sheds light on how engaged customers are with the platform. Understanding metrics such as average transactions per user and session duration can guide strategies to increase user engagement. Lastly, by examining referral sources, the author gained insights into which marketing channels drive traffic and sales. Investing resources in effective channels and optimizing underperforming ones can improve marketing ROI.
+- This is the author's opportunity to learn about the marketing industry and the customer journey through this e-commerce dataset
 
-In conclusion, exploring the e-commerce dataset on BigQuery unearthed a wealth of insights critical for strategic decision-making. The business can optimize operations, enhance customer experiences, and drive revenue growth by leveraging these insights. 
+- In analyzing the e-commerce dataset using BigQuery, the author understands customer behavior through the bounce rate, transaction, revenue, visit, and purchase.
+  
+- The author gained insights into which marketing channels drive traffic and sales by examining referral sources. Investing resources in effective channels and optimizing underperforming ones can improve marketing ROI.
+
+- In conclusion, exploring the e-commerce dataset on BigQuery unearthed a wealth of insights critical for strategic decision-making to help the business can optimize operations, enhance customer experiences, and drive revenue.
