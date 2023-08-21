@@ -724,52 +724,28 @@ ORDER BY revenue DESC;
 
 This table represents revenue data collection with various attributes, including time type, time period, source, and revenue amount. Each row corresponds to a specific time period (week or month) and provides information about the revenue generated from different sources during that time period. The author found the insights bellow through the table above.
 
- **Direct Revenue and Source Breakdown:** The dataset includes revenue from various sources, such as (direct), Google, dfa, mail.google.com, search engines like myway.com, and others. Revenue comes from different sources, including direct website visits, organic search traffic, and referrals from various websites.
+ **Direct Revenue and Source Breakdown:** The dataset includes revenue from various sources, such as (direct), Google, DFA, mail.google.com, and search engines like myway.com. Revenue comes from different sources, including direct website visits, organic search traffic, and referrals from various websites.
  
 **Time Period Analysis:**
 Revenue is reported on a weekly and monthly basis. It seems like the data spans multiple months, including the month labeled "201706."
 
 **6.4 Average number of pageviews by purchaser type**
 ~~~~sql
-WITH GET_6_MONTH AS 
-(
-    SELECT  
-    CASE WHEN 1= 1 THEN "201706" END MONTH,
-    SUM(CASE WHEN totals.transactions >=1 THEN totals.pageviews END) TOTAL_PUR_PAGEVIEWS,
-    SUM(CASE WHEN totals.transactions IS NULL THEN totals.pageviews END) TOTAL_NON_PUR_PAGEVIEWS,
-    COUNT(DISTINCT(CASE WHEN totals.transactions >=1 THEN fullVisitorId END)) NUM_PUR,
-    COUNT(DISTINCT(CASE WHEN totals.transactions IS NULL THEN fullVisitorId END)) NUM_NON_PUR
-    FROM `bigquery-public-data.google_analytics_sample.ga_sessions_201706*`
-),
+WITH GET_AVG_6_MONTH AS (SELECT
+CASE WHEN 1 = 1 THEN "201706" END AS Month,
+SUM(CASE WHEN totals.transactions >=1 THEN totals.transactions END ) AS total_transactions,
+COUNT(DISTINCT(CASE WHEN totals.transactions >=1 THEN fullVisitorId END )) AS NUM_USER
+FROM `bigquery-public-data.google_analytics_sample.ga_sessions_201706*`)
 
-GET_7_MONTH AS 
-(
-    SELECT  
-        CASE WHEN 1= 1 THEN "201707" END MONTH,
-        SUM(CASE WHEN totals.transactions >=1 THEN totals.pageviews END) TOTAL_PUR_PAGEVIEWS,
-        SUM(CASE WHEN totals.transactions IS NULL THEN totals.pageviews END) TOTAL_NON_PUR_PAGEVIEWS,
-        COUNT(DISTINCT(CASE WHEN totals.transactions >=1 THEN fullVisitorId END)) NUM_PUR,
-        COUNT(DISTINCT(CASE WHEN totals.transactions IS NULL THEN fullVisitorId END)) NUM_NON_PUR
-    FROM `bigquery-public-data.google_analytics_sample.ga_sessions_201707*`
-)
-
-SELECT MONTH month
-    ,TOTAL_PUR_PAGEVIEWS/NUM_PUR as avg_pageviews_purchase
-    ,TOTAL_NON_PUR_PAGEVIEWS/NUM_NON_PUR as avg_pageviews_non_purchase
-FROM GET_6_MONTH
-
-UNION ALL
-
-SELECT MONTH month
-    ,TOTAL_PUR_PAGEVIEWS/NUM_PUR as avg_pageviews_purchase
-    ,TOTAL_NON_PUR_PAGEVIEWS/NUM_NON_PUR as avg_pageviews_non_purchase
-FROM GET_7_MONTH
-ORDER BY MONTH;
+SELECT 
+Month,
+ROUND(total_transactions/NUM_USER,2) as Avg_total_transactions_per_user
+FROM GET_AVG_6_MONTH;
 ~~~~
 | month  | avg_pageviews_purchase | avg_pageviews_non_purchase |
 |--------|------------------------|----------------------------|
-| 201706 | 25.7357631             | 4.074559876                |
-| 201707 | 27.72095436            | 4.191840875                |
+| 201706 | 25.73            | 4.07               |
+| 201707 | 27.72            | 4.19               |
 
 
 The table shows user behavior in a tabular format with two columns  "avg_pageviews_purchase," and "avg_pageviews_non_purchase"  in two consecutive months, June 2017 (201706) and July 2017 (201707).
@@ -788,39 +764,43 @@ WITH GET_AVG_7_MONTH AS (SELECT
 CASE WHEN 1 = 1 THEN "201707" END AS Month,
 SUM(CASE WHEN totals.transactions >=1 THEN totals.transactions END ) AS total_transactions,
 COUNT(DISTINCT(CASE WHEN totals.transactions >=1 THEN fullVisitorId END )) AS NUM_USER
-FROM `bigquery-public-data.google_analytics_sample.ga_sessions_201707*`)
+FROM `bigquery-public-data.google_analytics_sample.ga_sessions_201706*`)
 
 SELECT 
 Month,
-total_transactions/NUM_USER as Avg_total_transactions_per_user
+ROUND(total_transactions/NUM_USER,2) as Avg_total_transactions_per_user
 FROM GET_AVG_7_MONTH;
 ~~~~
 | Month  | Avg_total_transactions_per_user |
 |--------|---------------------------------|
-| 201707 | 1.112033195                     |
+| 201707 | 1.11                   |
 
 The table shows the average total transactions per user in July. 
 This data suggests that, during July 2017, the typical user conducted about 1.11 transactions on average. This could be useful for understanding user behavior, tracking user engagement with your platform, or evaluating the effectiveness of marketing campaigns or promotions during that specific month.
 
 **6.6 Average amount of money spent per session. Only include purchaser data in 2017**
 ~~~~sql
-WITH GET_AVG_7_MONTH AS (SELECT
-CASE WHEN 1 = 1 THEN "201707" END AS Month,
-SUM(CASE WHEN 1 = 1 THEN totals.totalTransactionRevenue END ) AS total_trans_revenue,
-COUNT(CASE WHEN 1 = 1 THEN fullVisitorId  END ) AS NUM_USER
-FROM `bigquery-public-data.google_analytics_sample.ga_sessions_201707*`
-WHERE totals.transactions IS NOT NULL )
 
 SELECT 
-    Month,
-    format("%'.2f",total_trans_revenue/NUM_USER) as Avg_total_transactions_per_user
-FROM GET_AVG_7_MONTH;
+  FORMAT_DATE('%Y%m', PARSE_DATE('%Y%m%d', date)) AS month,
+  ROUND((SUM(product.productRevenue) / SUM(totals.visits))/1000000,2) AS Avg_revenue_by_user_per_visit
+FROM 
+  `bigquery-public-data.google_analytics_sample.ga_sessions_*`, 
+  UNNEST(hits) AS hits, 
+  UNNEST(hits.product) AS product
+WHERE 
+  _TABLE_SUFFIX BETWEEN '20170701' AND '20170731'
+  AND product.productRevenue IS NOT NULL
+  AND totals.transactions IS NOT NULL
+GROUP BY month;
+
 ~~~~
 | Month  | Avg_total_transactions_per_user |
 |--------|---------------------------------|
-| 201707 | 155,906,750.73                  |
+| 201707 | 43.86                  |
 
-The table shows that the average total transactions per user for July 2017 were around $155,906,750.73. This could be useful for understanding the revenue generated from user transactions and evaluating the financial performance the Ecommerce Business for that specific month.
+The average total transactions per user for July 2017 is 43.86. This suggests that, on average, each user conducted approximately 44 transactions during that month. This could be an important metric for businesses to measure user engagement and activity.
+
 
 **6.7 Other products purchased by customers who purchased product” Youtube Men’s Vintage Henley” in July 2017**
 ~~~~sql
@@ -844,59 +824,59 @@ WHERE TAB_A.fullVisitorId IN (SELECT * FROM GET_CUS_ID)
 GROUP BY product.v2ProductName
 ORDER BY QUANTITY DESC;
 ~~~~
-| other_purchased_products                                                                                                                                | quantity |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| Google Sunglasses                                                                                                                                       | 20       |
-| Google Womens Vintage Hero Tee Black	7
-SPF-15 Slim & Slender Lip Balm	6
-Google Womens Short Sleeve Hero Tee Red Heather                                 | 4        |
-| YouTube Mens Fleece Hoodie Black	3
-Google Mens Short Sleeve Badge Tee Charcoal                                                                          | 3        |
-| Crunch Noise Dog Toy                                                                                                                                    | 2        |
-| Android Wool Heather Cap Heather/Black                                                                                                                  | 2        |
-| Recycled Mouse Pad                                                                                                                                      | 2        |
-| Red Shine 15 oz Mug                                                                                                                                     | 2        |
-| Google Doodle Decal                                                                                                                                     | 2        |
-| YouTube Twill Cap                                                                                                                                       | 2        |
-| Google Mens Short Sleeve Hero Tee Charcoal	2
-Android Womens Fleece Hoodie                                                                               | 2        |
-| 22 oz YouTube Bottle Infuser                                                                                                                            | 2        |
-| Android Mens Vintage Henley	2
-Google Womens Long Sleeve Tee Lavender                                                                                    | 1        |
-| Android BTTF Moonshot Graphic Tee                                                                                                                       | 1        |
-| Google Mens Airflow 1/4 Zip Pullover Black	1
-YouTube Mens Long & Lean Tee Charcoal                                                                      | 1        |
-| Android Mens Short Sleeve Hero Tee Heather	1
-YouTube Womens Short Sleeve Tri-blend Badge Tee Charcoal                                                   | 1        |
-| Google Mens Performance 1/4 Zip Pullover Heather/Black	1
-YouTube Hard Cover Journal	1
-8 pc Android Sticker Sheet	1
-Google Mens Long & Lean Tee Charcoal | 1        |
-| Google Laptop and Cell Phone Stickers                                                                                                                   | 1        |
-| Google Mens Vintage Badge Tee Black	1
-Google Twill Cap	1
-Google Mens Long & Lean Tee Grey                                                               | 1        |
-| Google Mens Long Sleeve Raglan Ocean Blue	1
-YouTube Custom Decals	1
-Four Color Retractable Pen	1
-Google Mens Bike Short Sleeve Tee Charcoal             | 1        |
-| Google 5-Panel Cap                                                                                                                                      | 1        |
-| Google Toddler Short Sleeve T-shirt Grey                                                                                                                | 1        |
-| Android Sticker Sheet Ultra Removable                                                                                                                   | 1        |
-| Google Mens 100% Cotton Short Sleeve Hero Tee Red	1
-Android Mens Vintage Tank                                                                           | 1        |
-| Google Mens Performance Full Zip Jacket Black	1
-26 oz Double Wall Insulated Bottle	1
-Google Mens Vintage Badge Tee White                                | 1        |
-| Google Mens Pullover Hoodie Grey	1
-YouTube Mens Short Sleeve Hero Tee White                                                                             | 1        |
-| Android Mens Short Sleeve Hero Tee White	1
-Android Mens Pep Rally Short Sleeve Tee Navy                                                                 | 1        |
-| YouTube Mens Short Sleeve Hero Tee Black	1
-Google Slim Utility Travel Bag	1
-YouTube Womens Short Sleeve Hero Tee Charcoal                               | 1        |
-| Google Mens  Zip Hoodie	1                                                                                                                               |          |
-
+| other_purchased_products                                 | quantity |
+|----------------------------------------------------------|----------|
+| Google Sunglasses                                        | 20       |
+| Google Womens Vintage Hero Tee Black                     | 7        |
+| SPF-15 Slim & Slender Lip Balm                           | 6        |
+| Google Womens Short Sleeve Hero Tee Red Heather          | 4        |
+| YouTube Mens Fleece Hoodie Black                         | 3        |
+| Google Mens Short Sleeve Badge Tee Charcoal              | 3        |
+| YouTube Twill Cap                                        | 2        |
+| Red Shine 15 oz Mug                                      | 2        |
+| Google Doodle Decal                                      | 2        |
+| Recycled Mouse Pad                                       | 2        |
+| Google Mens Short Sleeve Hero Tee Charcoal               | 2        |
+| Android Womens Fleece Hoodie                             | 2        |
+| 22 oz YouTube Bottle Infuser                             | 2        |
+| Android Mens Vintage Henley                              | 2        |
+| Crunch Noise Dog Toy	                                   | 2        |
+| Android Wool Heather Cap Heather/Black                   | 2        |
+| Google Mens Vintage Badge Tee Black                      | 1        |
+| Google Twill Cap                                         | 1        |
+| Google Mens Long & Lean Tee Grey                         | 1        |
+| Google Mens Long & Lean Tee Charcoal                     | 1        |
+| Google Laptop and Cell Phone Stickers                    | 1        |
+| Google Mens Bike Short Sleeve Tee Charcoal               | 1        |
+| Google 5-Panel Cap                                       | 1        |
+| Google Toddler Short Sleeve T-shirt Grey                 | 1        |
+| Android Sticker Sheet Ultra Removable                    | 1        |
+| YouTube Custom Decals                                    | 1        |
+| Four Color Retractable Pen                               | 1        |
+| Google Mens Long Sleeve Raglan Ocean Blue                | 1        |
+| Google Mens Vintage Badge Tee White                      | 1        |
+| Google Mens 100% Cotton Short Sleeve Hero Tee Red        | 1        |
+| Android Mens Vintage Tank                                | 1        |
+| Google Mens Performance Full Zip Jacket Black            | 1        |
+| 26 oz Double Wall Insulated Bottle                       | 1        |
+| Google Mens  Zip Hoodie                                  | 1        |
+| YouTube Womens Short Sleeve Hero Tee Charcoal            | 1        |
+| Google Mens Pullover Hoodie Grey                         | 1        |
+| YouTube Mens Short Sleeve Hero Tee White                 | 1        |
+| Android Mens Short Sleeve Hero Tee White                 | 1        |
+| Android Mens Pep Rally Short Sleeve Tee Navy             | 1        |
+| YouTube Mens Short Sleeve Hero Tee Black                 | 1        |
+| Google Slim Utility Travel Bag                           | 1        |
+| Android BTTF Moonshot Graphic Tee                        | 1        |
+| Google Mens Airflow 1/4 Zip Pullover Black               | 1        |
+| Google Womens Long Sleeve Tee Lavender                   | 1        |
+| 8 pc Android Sticker Sheet                               | 1        |
+| YouTube Hard Cover Journal                               | 1        |
+| Android Mens Short Sleeve Hero Tee Heather               | 1        |
+| YouTube Womens Short Sleeve Tri-blend Badge Tee Charcoal | 1        |
+| Google Mens Performance 1/4 Zip Pullover Heather/Black   | 1        |
+| YouTube Mens Long & Lean Tee Charcoal                    | 1        |
+                                                                      
 
 Overall, the data provides valuable insights into customer preferences, product popularity, and potential areas for marketing and merchandising strategies. Further analysis of historical data and integration with customer demographics could provide a more comprehensive understanding of these trends.
  
