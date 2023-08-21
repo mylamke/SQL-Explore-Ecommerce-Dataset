@@ -174,110 +174,111 @@ Moreover, the substantial jump in transactions and revenue from January to March
 SELECT trafficSource.source
        ,COUNT(visitNumber) total_visits
        ,SUM(totals.bounces) total_no_of_bounces
-       ,(SUM(totals.bounces)/COUNT(visitNumber))*100 bounce_rate
+       ,ROUND((SUM(totals.bounces)/COUNT(visitNumber))*100,2) bounce_rate
 FROM `bigquery-public-data.google_analytics_sample.ga_sessions_201707*`
 GROUP BY trafficSource.source
 ORDER BY total_visits DESC;
+
 ~~~~
 | source                      | total_visits | total_no_of_bounces | bounce_rate |
 |-----------------------------|--------------|---------------------|-------------|
-| google                      | 38400        | 19798               | 51.55729167 |
-| (direct)                    | 19891        | 8606                | 43.2657986  |
-| youtube.com                 | 6351         | 4238                | 66.72964887 |
-| analytics.google.com        | 1972         | 1064                | 53.95537525 |
-| Partners                    | 1788         | 936                 | 52.34899329 |
-| m.facebook.com              | 669          | 430                 | 64.27503737 |
-| google.com                  | 368          | 183                 | 49.72826087 |
-| dfa                         | 302          | 124                 | 41.05960265 |
-| sites.google.com            | 230          | 97                  | 42.17391304 |
-| facebook.com                | 191          | 102                 | 53.40314136 |
-| reddit.com                  | 189          | 54                  | 28.57142857 |
-| qiita.com                   | 146          | 72                  | 49.31506849 |
+| google                      | 38400        | 19798               | 51.56       |
+| (direct)                    | 19891        | 8606                | 43.27       |
+| youtube.com                 | 6351         | 4238                | 66.73       |
+| analytics.google.com        | 1972         | 1064                | 53.96       |
+| Partners                    | 1788         | 936                 | 52.35       |
+| m.facebook.com              | 669          | 430                 | 64.28       |
+| google.com                  | 368          | 183                 | 49.73       |
+| dfa                         | 302          | 124                 | 41.06       |
+| sites.google.com            | 230          | 97                  | 42.17       |
+| facebook.com                | 191          | 102                 | 53.4        |
+| reddit.com                  | 189          | 54                  | 28.57       |
+| qiita.com                   | 146          | 72                  | 49.32       |
 | baidu                       | 140          | 84                  | 60          |
 | quora.com                   | 140          | 70                  | 50          |
-| bing                        | 111          | 54                  | 48.64864865 |
-| mail.google.com             | 101          | 25                  | 24.75247525 |
+| bing                        | 111          | 54                  | 48.65       |
+| mail.google.com             | 101          | 25                  | 24.75       |
 | yahoo                       | 100          | 41                  | 41          |
-| blog.golang.org             | 65           | 19                  | 29.23076923 |
-| l.facebook.com              | 51           | 45                  | 88.23529412 |
+| blog.golang.org             | 65           | 19                  | 29.23       |
+| l.facebook.com              | 51           | 45                  | 88.24       |
 | groups.google.com           | 50           | 22                  | 44          |
-| t.co                        | 38           | 27                  | 71.05263158 |
-| google.co.jp                | 36           | 25                  | 69.44444444 |
-| m.youtube.com               | 34           | 22                  | 64.70588235 |
-| dealspotr.com               | 26           | 12                  | 46.15384615 |
+| t.co                        | 38           | 27                  | 71.05       |
+| google.co.jp                | 36           | 25                  | 69.44       |
+| m.youtube.com               | 34           | 22                  | 64.71       |
+| dealspotr.com               | 26           | 12                  | 46.15       |
 | productforums.google.com    | 25           | 21                  | 84          |
-| support.google.com          | 24           | 16                  | 66.66666667 |
-| ask                         | 24           | 16                  | 66.66666667 |
-| int.search.tb.ask.com       | 23           | 17                  | 73.91304348 |
-| optimize.google.com         | 21           | 10                  | 47.61904762 |
+| ask                         | 24           | 16                  | 66.67       |
+| support.google.com          | 24           | 16                  | 66.67       |
+| int.search.tb.ask.com       | 23           | 17                  | 73.91       |
+| optimize.google.com         | 21           | 10                  | 47.62       |
 | docs.google.com             | 20           | 8                   | 40          |
 | lm.facebook.com             | 18           | 9                   | 50          |
-| l.messenger.com             | 17           | 6                   | 35.29411765 |
+| l.messenger.com             | 17           | 6                   | 35.29       |
 | adwords.google.com          | 16           | 7                   | 43.75       |
 | duckduckgo.com              | 16           | 14                  | 87.5        |
-| google.co.uk                | 15           | 7                   | 46.66666667 |
-| sashihara.jp                | 14           | 8                   | 57.14285714 |
-| lunametrics.com             | 13           | 8                   | 61.53846154 |
-| search.mysearch.com         | 12           | 11                  | 91.66666667 |
-| outlook.live.com            | 10           | 7                   | 70          |
+| google.co.uk                | 15           | 7                   | 46.67       |
+| sashihara.jp                | 14           | 8                   | 57.14       |
+| lunametrics.com             | 13           | 8                   | 61.54       |
+| search.mysearch.com         | 12           | 11                  | 91.67       |
 | tw.search.yahoo.com         | 10           | 8                   | 80          |
-| phandroid.com               | 9            | 7                   | 77.77777778 |
+| outlook.live.com            | 10           | 7                   | 70          |
+| phandroid.com               | 9            | 7                   | 77.78       |
 | connect.googleforwork.com   | 8            | 5                   | 62.5        |
 | plus.google.com             | 8            | 2                   | 25          |
-| m.yz.sm.cn                  | 7            | 5                   | 71.42857143 |
+| m.yz.sm.cn                  | 7            | 5                   | 71.43       |
 | google.co.in                | 6            | 3                   | 50          |
 | search.xfinity.com          | 6            | 6                   | 100         |
 | google.ru                   | 5            | 1                   | 20          |
-| hangouts.google.com         | 5            | 1                   | 20          |
 | online-metrics.com          | 5            | 2                   | 40          |
+| hangouts.google.com         | 5            | 1                   | 20          |
 | s0.2mdn.net                 | 5            | 3                   | 60          |
 | m.sogou.com                 | 4            | 3                   | 75          |
 | in.search.yahoo.com         | 4            | 2                   | 50          |
 | googleads.g.doubleclick.net | 4            | 1                   | 25          |
 | away.vk.com                 | 4            | 3                   | 75          |
 | getpocket.com               | 3            |                     |             |
-| m.baidu.com                 | 3            | 2                   | 66.66666667 |
-| siliconvalley.about.com     | 3            | 2                   | 66.66666667 |
+| m.baidu.com                 | 3            | 2                   | 66.67       |
+| siliconvalley.about.com     | 3            | 2                   | 66.67       |
+| msn.com                     | 2            | 1                   | 50          |
 | google.it                   | 2            | 1                   | 50          |
 | google.co.th                | 2            | 1                   | 50          |
-| calendar.google.com         | 2            | 1                   | 50          |
-| msn.com                     | 2            | 1                   | 50          |
 | wap.sogou.com               | 2            | 2                   | 100         |
-| centrum.cz                  | 2            | 2                   | 100         |
-| myactivity.google.com       | 2            | 1                   | 50          |
-| plus.url.google.com         | 2            |                     |             |
+| calendar.google.com         | 2            | 1                   | 50          |
 | github.com                  | 2            | 2                   | 100         |
-| amp.reddit.com              | 2            | 1                   | 50          |
-| au.search.yahoo.com         | 2            | 2                   | 100         |
-| m.sp.sm.cn                  | 2            | 2                   | 100         |
+| plus.url.google.com         | 2            |                     |             |
+| myactivity.google.com       | 2            | 1                   | 50          |
+| centrum.cz                  | 2            | 2                   | 100         |
 | search.1and1.com            | 2            | 2                   | 100         |
 | uk.search.yahoo.com         | 2            | 1                   | 50          |
+| au.search.yahoo.com         | 2            | 2                   | 100         |
+| m.sp.sm.cn                  | 2            | 2                   | 100         |
 | google.cl                   | 2            | 1                   | 50          |
 | moodle.aurora.edu           | 2            | 2                   | 100         |
-| google.ca                   | 1            |                     |             |
-| gophergala.com              | 1            | 1                   | 100         |
-| kik.com                     | 1            | 1                   | 100         |
-| aol                         | 1            |                     |             |
+| amp.reddit.com              | 2            | 1                   | 50          |
 | newclasses.nyu.edu          | 1            |                     |             |
-| malaysia.search.yahoo.com   | 1            | 1                   | 100         |
-| earth.google.com            | 1            |                     |             |
-| google.nl                   | 1            |                     |             |
 | google.es                   | 1            | 1                   | 100         |
+| google.ca                   | 1            |                     |             |
+| malaysia.search.yahoo.com   | 1            | 1                   | 100         |
 | kidrex.org                  | 1            | 1                   | 100         |
-| online.fullsail.edu         | 1            | 1                   | 100         |
-| arstechnica.com             | 1            |                     |             |
-| images.google.com.au        | 1            | 1                   | 100         |
-| search.tb.ask.com           | 1            |                     |             |
-| it.pinterest.com            | 1            | 1                   | 100         |
+| gophergala.com              | 1            | 1                   | 100         |
+| aol                         | 1            |                     |             |
+| google.nl                   | 1            |                     |             |
+| kik.com                     | 1            | 1                   | 100         |
+| earth.google.com            | 1            |                     |             |
 | ph.search.yahoo.com         | 1            |                     |             |
 | web.mail.comcast.net        | 1            | 1                   | 100         |
-| es.search.yahoo.com         | 1            | 1                   | 100         |
 | google.bg                   | 1            | 1                   | 100         |
 | news.ycombinator.com        | 1            | 1                   | 100         |
+| es.search.yahoo.com         | 1            | 1                   | 100         |
+| it.pinterest.com            | 1            | 1                   | 100         |
 | mx.search.yahoo.com         | 1            | 1                   | 100         |
+| images.google.com.au        | 1            | 1                   | 100         |
+| search.tb.ask.com           | 1            |                     |             |
+| arstechnica.com             | 1            |                     |             |
 | web.facebook.com            | 1            | 1                   | 100         |
-| suche.t-online.de           | 1            | 1                   | 100         |
+| online.fullsail.edu         | 1            | 1                   | 100         |
 | google.com.br               | 1            |                     |             |
+| suche.t-online.de           | 1            | 1                   | 100         |
 
 
 The table provides an overview of website traffic from various sources and key metrics that help evaluate user engagement and behavior based on four elements: source, total_visits, total_no_of_bounces, bounce_rate. Google website received the most traffic to the website at 38,400 visits in the first row. Of these, 19,798 were single-page visits (bounces), resulting in a bounce rate of approximately 51.56%. Following that Direct website took second place at 19,891 visits from direct traffic, with 8,606 bounces, leading to a bounce rate of about 43.27%. Thereafter, the Youtube.com website had 6,351 visits, with 4,238 bounces, resulting in a bounce rate of approximately 66.73%, higher than Google and Direct. However, search.mysearch.com website had the lowest total visits but the highest bounce rate. It had 12 visits with 11 bounces, resulting in a bounce rate of approximately 91.67%. This indicates that most users who visited the website from this source left without interacting with other pages. A high bounce rate from a source like search.mysearch.com suggests that users arriving from this source might not find the content they are looking for or that the landing page experience may not be engaging enough to encourage further exploration. It's important to note that while addressing high bounce rates is essential, the context of the source and user behavior should be thoroughly analyzed to determine the most effective strategies for improvement. Because a lower bounce rate generally indicates that users are more engaged with the website content, while a higher bounce rate may suggest that users are leaving the site after viewing only a single page.
@@ -957,3 +958,8 @@ However, the add-to-cart rate and purchase rate are notably higher in March 2017
 <div id='cau7'/>
   
 ## 7.Conclusion
+In analyzing the e-commerce dataset using BigQuery, the author delved into various aspects of customer behavior, sales patterns, and business performance. The dataset provided a comprehensive view of transactions and user engagement, enabling the author to derive actionable insights. Several key takeaways emerged from the author's exploration. 
+
+Firstly, the author observed fluctuations in sales and revenue across different periods. Peaks and troughs might be attributed to seasonality, promotions, or external factors. Identifying these trends can help the business plan inventory, marketing campaigns, and resource allocation more effectively. Secondly, calculating conversion rates allowed the author to gauge the effectiveness of the website's user experience and sales funnel. The business can implement improvements to enhance the conversion process by identifying potential drop-off points. Following that, the exploration of user activity sheds light on how engaged customers are with the platform. Understanding metrics such as average transactions per user and session duration can guide strategies to increase user engagement. Lastly, by examining referral sources, the author gained insights into which marketing channels drive traffic and sales. Investing resources in effective channels and optimizing underperforming ones can improve marketing ROI.
+
+In conclusion, exploring the e-commerce dataset on BigQuery unearthed a wealth of insights critical for strategic decision-making. The business can optimize operations, enhance customer experiences, and drive revenue growth by leveraging these insights. 
