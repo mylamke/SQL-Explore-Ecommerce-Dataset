@@ -1,5 +1,5 @@
 # Explore-Ecommerce-Dataset
-## Table of Contents:
+## Table of Contents: 
 1. [Introduction and Motivation](#data)
 2. [The goal of creating this project](#clean_data)
 3. [Import raw data](#cau3)
