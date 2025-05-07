@@ -27,7 +27,7 @@ To query and work with this dataset, the author uses the Google BigQuery tool to
 - Transactions analysis
 - Products analysis
 
-<div id='cau3'/>
+<div id='cau3'/>  
   
 ## 3.Import raw data
   
