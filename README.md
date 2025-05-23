@@ -31,7 +31,7 @@ To query and work with this dataset, the author uses the Google BigQuery tool to
   
 ## 3.Import raw data
   
-The eCommerce dataset is stored in a public Google BigQuery dataset. To access the dataset, follow these steps:
+The eCommerce dataset is stored in a public Google BigQuery dataset. To access the dataset, follow these steps: 
 - Log in to your Google Cloud Platform account and create a new project.
 - Navigate to the BigQuery console and select your newly created project.
 - Select "Add Data" in the navigation panel and then "Search a project".
