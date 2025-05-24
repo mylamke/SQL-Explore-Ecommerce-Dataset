@@ -18,7 +18,7 @@ Based on the eCommerce dataset, the author perform queries to analyze website ac
 
 To query and work with this dataset, the author uses the Google BigQuery tool to write and execute SQL queries.
 
-<div id='clean_data'/> 
+<div id='clean_data'/>  
   
 ## 2.The goal of creating this project
 - Overview of website activity
