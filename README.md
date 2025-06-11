@@ -9,7 +9,7 @@
 7. [Conclusion](#cau7)
 
 <div id='data'/>
-  
+   
 ## 1. Introduction and Motivation
 
 The eCommerce dataset is stored in a public Google BigQuery dataset. This dataset contains information about user sessions on a website collected from Google Analytics in 2017.
