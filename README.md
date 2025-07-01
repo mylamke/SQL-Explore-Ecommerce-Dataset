@@ -28,7 +28,7 @@ To query and work with this dataset, the author uses the Google BigQuery tool to
 - Products analysis
 
 <div id='cau3'/>  
-  
+   
 ## 3.Import raw data
   
 The eCommerce dataset is stored in a public Google BigQuery dataset. To access the dataset, follow these steps: 
