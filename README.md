@@ -17,7 +17,7 @@ The eCommerce dataset is stored in a public Google BigQuery dataset. This datase
 Based on the eCommerce dataset, the author perform queries to analyze website activity in 2017, such as calculating bounce rate, identifying days with the highest revenue, analyzing user behavior on pages, and various other types of analysis. This project aims to have an outlook on the business situation, marketing activity efficiency analyzing the products.
 
 To query and work with this dataset, the author uses the Google BigQuery tool to write and execute SQL queries.
-
+ 
 <div id='clean_data'/>  
   
 ## 2.The goal of creating this project
