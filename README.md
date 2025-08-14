@@ -22,7 +22,7 @@ To query and work with this dataset, the author uses the Google BigQuery tool to
   
 ## 2.The goal of creating this project
 - Overview of website activity
-- Bounce rate analysis
+- Bounce rate analysis 
 - Revenue analysis
 - Transactions analysis
 - Products analysis
